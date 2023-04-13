@@ -1,4 +1,4 @@
-package com.лаб1;
+package лаб1;
 
 import java.util.Arrays;
 

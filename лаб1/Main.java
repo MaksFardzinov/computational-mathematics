@@ -1,4 +1,4 @@
-package com.лаб1;
+package лаб1;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public class Main {
         }
         else if (method.equals("файл")){
             try {
-                BufferedReader buffer = new BufferedReader( new FileReader("files/file1.txt"));
+                BufferedReader buffer = new BufferedReader( new FileReader("C:/Users/maksf/IdeaProjects/Math/src/лаб1/file1"));
                 while (buffer.ready()){
                     arrayList2.add(buffer.readLine());
                 }
@@ -89,32 +89,32 @@ public class Main {
                         matrix[i][j] = Double.parseDouble(line[j]);
                     }
                     catch (NumberFormatException e){
-                            System.out.println("неправильный ввод данных, введите данные коректно\n справка:\n 1)не должно быть" +
-                                    " не каких символов кроме цифр\n 2)дробные числа записыватся через точку");
-                            System.exit(0);
-                        }
+                        System.out.println("неправильный ввод данных, введите данные коректно\n справка:\n 1)не должно быть" +
+                                " не каких символов кроме цифр\n 2)дробные числа записыватся через точку");
+                        System.exit(0);
+                    }
                 }
             }
         }
         double[][] triangle_matrix = Gauss.make_triangle(matrix);
-            Print.triangle_matrix(triangle_matrix);
-            System.out.println("определитель матрицы равен:"+Gauss.determinate(triangle_matrix));
-            System.out.println();
-                if (Gauss.determinate(triangle_matrix)!=0) {
-                    System.out.println("Корни Системы уравнений\n");
-                    double[] answers=Gauss.get_answer(matrix);
-                    for (int i=0;i<answers.length;i++){
-                        System.out.println("x"+(i+1)+" = "+answers[i]);
-                    }
-                    double[] neviaski=Gauss.find_neviaski(triangle_matrix,answers);
-                    System.out.println("Ветор невязки\n");
-                    for (int i=0;i<neviaski.length;i++){
-                        System.out.println(neviaski[i]);
-                    }
-                }
-                else {
-                    Print.answers(triangle_matrix);
-                }
+        Print.triangle_matrix(triangle_matrix);
+        System.out.println("определитель матрицы равен:"+Gauss.determinate(triangle_matrix));
+        System.out.println();
+        if (Gauss.determinate(triangle_matrix)!=0) {
+            System.out.println("Корни Системы уравнений\n");
+            double[] answers=Gauss.get_answer(matrix);
+            for (int i=0;i<answers.length;i++){
+                System.out.println("x"+(i+1)+" = "+answers[i]);
+            }
+            double[] neviaski=Gauss.find_neviaski(triangle_matrix,answers);
+            System.out.println("Ветор невязки\n");
+            for (int i=0;i<neviaski.length;i++){
+                System.out.println(neviaski[i]);
+            }
+        }
+        else {
+            Print.answers(triangle_matrix);
+        }
         //long finish = System.currentTimeMillis();
         //System.out.println("Время работы метода - "+(finish-start)+" миллисекунд");
     }

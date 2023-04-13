@@ -1,5 +1,4 @@
-package com.лаб1;
-
+package лаб1;
 
 public class Gauss {
     public static double determinate(double[][] matrix){
@@ -10,7 +9,7 @@ public class Gauss {
         int size = matrix.length;
         for (int i = 0; i < size; i++){
             dioganal = dioganal * matrix[i][i];
-    }
+        }
         if (dioganal!=0){
             transformation(matrix);
         }
@@ -19,26 +18,26 @@ public class Gauss {
             double[] matrix_for_clone = new double[size+1];
             for (int j=0;j<size+1;j++){
                 for( int i=j+1;i<size;i++){
-                        if (matrix[j][j] == 0) {
-                            if (matrix[i][j] != 0) {
-                                number = i;
-                                for (int l = 0; l < matrix[0].length; l++) {
-                                    matrix_for_clone[l] = matrix[number][l];
-                                    matrix[number][l] = matrix[j][l];
-                                    matrix[j][l] = matrix_for_clone[l];
-                                }
-                                break;
+                    if (matrix[j][j] == 0) {
+                        if (matrix[i][j] != 0) {
+                            number = i;
+                            for (int l = 0; l < matrix[0].length; l++) {
+                                matrix_for_clone[l] = matrix[number][l];
+                                matrix[number][l] = matrix[j][l];
+                                matrix[j][l] = matrix_for_clone[l];
                             }
-                        }
-                        else {
                             break;
                         }
+                    }
+                    else {
+                        break;
+                    }
                 }
             }
             for (int i = 0; i < size; i++){
                 dioganal = dioganal * matrix[i][i];
             }
-                transformation(matrix);
+            transformation(matrix);
         }
         return matrix;
     }
@@ -81,7 +80,7 @@ public class Gauss {
                 answers[i] = x;
             }
         }
-       return answers;
+        return answers;
     }
     public static double[] find_neviaski(double[][] matrix,double[] answers){
         double[] neviaski = new double[matrix.length];
